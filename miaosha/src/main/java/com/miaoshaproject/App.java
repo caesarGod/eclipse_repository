@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.miaoshaproject.dao.UserDoMapper;
 import com.miaoshaproject.dataobject.UserDo;
 
-/**
- * Hello world!
- *
- */
+
 @SpringBootApplication(scanBasePackages = {"com.miaoshaproject"})
 @RestController
 @MapperScan("com.miaoshaproject.dao")
@@ -28,7 +25,7 @@ public class App
 		if (userDo!=null)
 		return userDo.getName();
 		else {
-			return "Hello World!";
+			return "用户名不存在！";
 		}
 	}
     public static void main( String[] args )

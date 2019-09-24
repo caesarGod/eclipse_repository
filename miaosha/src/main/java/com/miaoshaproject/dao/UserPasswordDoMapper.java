@@ -12,7 +12,9 @@ public interface UserPasswordDoMapper {
 	int insertSelective(UserPasswordDo record);
 
 	UserPasswordDo selectByPrimaryKey(Integer id);
-
+//根据用户id查找到相应的密码
+	UserPasswordDo selectByUserId(Integer id);
+	
 	int updateByPrimaryKeySelective(UserPasswordDo record);
 
 	int updateByPrimaryKey(UserPasswordDo record);
