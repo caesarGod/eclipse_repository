@@ -1,6 +1,6 @@
 package com.miaoshaproject.controller.model;
 
-public class ControlModel {
+public class UserVo{
 	private Integer id;
 	private String name;
 	private Byte gender;

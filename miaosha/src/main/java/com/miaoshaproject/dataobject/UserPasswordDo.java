@@ -1,7 +1,6 @@
 package com.miaoshaproject.dataobject;
 
 public class UserPasswordDo {
-
 	private Integer id;
 	private String encrptPassword;
 	private Integer userId;

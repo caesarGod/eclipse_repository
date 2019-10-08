@@ -80,4 +80,6 @@ public class UserDo {
 	public void setThirdPartyId(String thirdPartyId) {
 		this.thirdPartyId = thirdPartyId == null ? null : thirdPartyId.trim();
 	}
+
+
 }

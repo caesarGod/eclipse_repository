@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.miaoshaproject.dao.UserDoMapper">
+
   <resultMap id="BaseResultMap" type="com.miaoshaproject.dataobject.UserDo">
     <constructor>
       <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -12,9 +13,18 @@
       <arg column="third_party_id" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
+  
   <sql id="Base_Column_List">
     id, name, gender, age, telphone, register_mode, third_party_id
   </sql>
+  
+  <select id="selectByTelphone" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_info
+    where telphone = #{telphone,jdbcType=VARCHAR}
+  </select>
+  
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -25,7 +35,7 @@
     delete from user_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.miaoshaproject.dataobject.UserDo">
+  <insert id="insert" parameterType="com.miaoshaproject.dataobject.UserDo" useGeneratedKeys="true" keyProperty="id">
     insert into user_info (id, name, gender, 
       age, telphone, register_mode, 
       third_party_id)
@@ -33,7 +43,8 @@
       #{age,jdbcType=INTEGER}, #{telphone,jdbcType=VARCHAR}, #{registerMode,jdbcType=VARCHAR}, 
       #{thirdPartyId,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.miaoshaproject.dataobject.UserDo">
+  <!--用这俩个属性取出自增id   keyProperty="id" useGeneratedKeys="true" -->
+  <insert id="insertSelective" keyProperty="id" parameterType="com.miaoshaproject.dataobject.UserDo" useGeneratedKeys="true">
     insert into user_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -116,4 +127,5 @@
       third_party_id = #{thirdPartyId,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
 </mapper>

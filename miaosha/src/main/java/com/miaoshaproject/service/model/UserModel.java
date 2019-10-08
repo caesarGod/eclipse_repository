@@ -1,13 +1,28 @@
 package com.miaoshaproject.service.model;
 
+import javax.validation.constraints.*;
+
+
 public class UserModel {
 	private Integer id;
+	@NotBlank(message="用户名不能为空")
 	private String name;
+	
+	@NotNull(message="请填写性别")
 	private Byte gender;
+	@NotNull(message="请填写年龄")
+	@Min(value=0,message="年龄必须大于0岁")
+	@Max(value=150,message="年龄必须小于150岁")
 	private Integer age;
+	
+	@NotNull(message="手机号不能为空")
 	private String telphone;
+	
+	
 	private String registerMode;
 	private String thirdPartyId;
+	
+	@NotNull(message="密码不能为空")
     private String encrptPassword;
 	public Integer getId() {
 		return id;
