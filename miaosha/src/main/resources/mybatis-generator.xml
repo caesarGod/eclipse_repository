@@ -37,8 +37,9 @@
         targetPackage     指定生成的model生成所在的包名
         targetProject     指定在该项目下所在的路径
     -->
+    <!--  targetProject不用加项目名  可生成文件 -->
     <javaModelGenerator targetPackage="com.miaoshaproject.dataobject"
-                        targetProject="miaosha/src/main/java"> <!-- targetProject="miaosha/src/main/java"
+                        targetProject="src/main/java"> <!-- targetProject="miaosha/src/main/java"
                                                                                                                                                                                                                                                         项目名/目录名 -->
 
         <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
@@ -53,7 +54,7 @@
 
     <!--在resources目录下的mappering文件，生成数据库的表对应的xml文件 -->
     <sqlMapGenerator targetPackage="mappering"
-                     targetProject="miaosha/src/main/resources">
+                     targetProject="src/main/resources">
         <property name="enableSubPackages" value="true"/>
     </sqlMapGenerator>
 
@@ -63,7 +64,7 @@
             type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
     -->
     <javaClientGenerator targetPackage="com.miaoshaproject.dao"
-                         targetProject="miaosha/src/main/java" type="XMLMAPPER">
+                         targetProject="src/main/java" type="XMLMAPPER">
         <property name="enableSubPackages" value="true"/>
     </javaClientGenerator>
 
@@ -84,7 +85,7 @@
            enableCountByExample="false" enableUpdateByExample="false"
            enableDeleteByExample="false" enableSelectByExample="false"
            selectByExampleQueryId="false"></table> -->
-    <table tableName="item_stock" domainObjectName="ItemStockDo"
+    <table tableName="sequence_info" domainObjectName="SequenceDo"
            enableCountByExample="false" enableUpdateByExample="false"
            enableDeleteByExample="false" enableSelectByExample="false"
            selectByExampleQueryId="false">

@@ -1,5 +1,7 @@
 package com.miaoshaproject.dao;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.miaoshaproject.dataobject.ItemStockDo;
 
 public interface ItemStockDoMapper {
@@ -17,4 +19,7 @@ public interface ItemStockDoMapper {
     int updateByPrimaryKeySelective(ItemStockDo record);
 
     int updateByPrimaryKey(ItemStockDo record);
+    
+    
+    int decreaseStock(@Param("itemId") Integer itemId,@Param("amount")Integer amount);
 }
